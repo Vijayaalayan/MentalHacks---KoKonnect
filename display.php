@@ -14,8 +14,8 @@ if(isset($_POST['but_logout'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <title>FindMyPal</title>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/reset.min.css" />
     <link rel="stylesheet" href="styles/style.css" />
     <link rel="stylesheet" href="styles/header-8.css" />
@@ -149,7 +149,8 @@ h4 {
             <div class="col-lg-4">
                 <div class="text-center card-box">
                     <div class="member-card pt-2 pb-2">
-                        <div class="thumb-lg member-thumb mx-auto"><img src="image/<?php echo $row1['image']?>.jpg" class="rounded-circle img-thumbnail" alt="profile-image"></div>
+                        <div class="thumb-lg member-thumb mx-auto"><img src="image/<?php echo $row1['image']?>.jpeg" class="rounded-circle img-thumbnail" alt="profile-image"></div>
+                        <br><br>
                         <div class="">
                             <h4><?php echo $row1['username']?></h4>
                             <p class="text-muted"><?php echo $row1['place'] ?> <span>| </span><span><a href="#" class="text-pink"> <?php echo $row1['numbers']?></a></span></p>
@@ -191,7 +192,8 @@ h4 {
                         <div class="col-lg-4">
                 <div class="text-center card-box">
                     <div class="member-card pt-2 pb-2">
-                        <div class="thumb-lg member-thumb mx-auto"><img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle img-thumbnail" alt="profile-image"></div>
+                        <div class="thumb-lg member-thumb mx-auto"><img src="image/<?php echo $row1['image']?>.jpeg" class="rounded-circle img-thumbnail" alt="profile-image"></div>
+                        <br><br>
                         <div class="">
                             <h4><?php echo $row1['username']?></h4>
                             <p class="text-muted"><?php echo $row1['place'] ?> <span>
@@ -252,7 +254,8 @@ h4 {
                 <div class="col-lg-4">
                     <div class="text-center card-box">
                         <div class="member-card pt-2 pb-2">
-                            <div class="thumb-lg member-thumb mx-auto"><img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle img-thumbnail" alt="profile-image"></div>
+                            <div class="thumb-lg member-thumb mx-auto"><img src="image/<?php echo $row1['image']?>.jpeg" class="rounded-circle img-thumbnail" alt="profile-image"></div>
+                            <br><br>
                             <div class="">
                                 <h4><?php echo $row1['username']?></h4>
                                 <p class="text-muted"><?php echo $row1['place'] ?> <span>| </span><span><a href="#" class="text-pink"> <?php echo $row1['numbers']?></a></span></p>
@@ -294,7 +297,8 @@ h4 {
                             <div class="col-lg-4">
                     <div class="text-center card-box">
                         <div class="member-card pt-2 pb-2">
-                            <div class="thumb-lg member-thumb mx-auto"><img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle img-thumbnail" alt="profile-image"></div>
+                            <div class="thumb-lg member-thumb mx-auto"><img src="image/<?php echo $row1['image']?>.jpeg" class="rounded-circle img-thumbnail" alt="profile-image"></div>
+                            <br><br>
                             <div class="">
                                 <h4><?php echo $row1['username']?></h4>
                                 <p class="text-muted"><?php echo $row1['place'] ?> <span>
@@ -355,7 +359,8 @@ h4 {
                 <div class="col-lg-4">
                     <div class="text-center card-box">
                         <div class="member-card pt-2 pb-2">
-                            <div class="thumb-lg member-thumb mx-auto"><img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle img-thumbnail" alt="profile-image"></div>
+                            <div class="thumb-lg member-thumb mx-auto"><img src="image/<?php echo $row1['image']?>.jpeg" class="rounded-circle img-thumbnail" alt="profile-image"></div>
+                            <br><br>
                             <div class="">
                                 <h4><?php echo $row1['username']?></h4>
                                 <p class="text-muted"><?php echo $row1['place'] ?> <span>| </span><span><a href="#" class="text-pink"> <?php echo $row1['numbers']?></a></span></p>
@@ -397,7 +402,8 @@ h4 {
                             <div class="col-lg-4">
                     <div class="text-center card-box">
                         <div class="member-card pt-2 pb-2">
-                            <div class="thumb-lg member-thumb mx-auto"><img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle img-thumbnail" alt="profile-image"></div>
+                            <div class="thumb-lg member-thumb mx-auto"><img src="image/<?php echo $row1['image']?>.jpeg" class="rounded-circle img-thumbnail" alt="profile-image"></div>
+                            <br><br>
                             <div class="">
                                 <h4><?php echo $row1['username']?></h4>
                                 <p class="text-muted"><?php echo $row1['place'] ?> <span>
@@ -458,7 +464,8 @@ h4 {
                 <div class="col-lg-4">
                     <div class="text-center card-box">
                         <div class="member-card pt-2 pb-2">
-                            <div class="thumb-lg member-thumb mx-auto"><img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle img-thumbnail" alt="profile-image"></div>
+                            <div class="thumb-lg member-thumb mx-auto"><img src="image/<?php echo $row1['image']?>.jpeg" class="rounded-circle img-thumbnail" alt="profile-image"></div>
+                            <br><br>
                             <div class="">
                                 <h4><?php echo $row1['username']?></h4>
                                 <p class="text-muted"><?php echo $row1['place'] ?> <span>| </span><span><a href="#" class="text-pink"> <?php echo $row1['numbers']?></a></span></p>
@@ -500,7 +507,8 @@ h4 {
                             <div class="col-lg-4">
                     <div class="text-center card-box">
                         <div class="member-card pt-2 pb-2">
-                            <div class="thumb-lg member-thumb mx-auto"><img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle img-thumbnail" alt="profile-image"></div>
+                            <div class="thumb-lg member-thumb mx-auto"><img src="image/<?php echo $rows['image']?>.jpeg" class="rounded-circle img-thumbnail" alt="profile-image"></div>
+                            <br><br>
                             <div class="">
                                 <h4><?php echo $row1['username']?></h4>
                                 <p class="text-muted"><?php echo $row1['place'] ?> <span>
@@ -546,13 +554,13 @@ h4 {
     </div>
     </div>
     </div>
-    <div style="float:right">
+    <!-- <div style="float:right">
     <iframe width="350" height="430" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/f83e1948-617f-407b-b88c-90132afaa91d"></iframe>
 
-    </div>
+    </div> -->
     <script src="js/header-8.js"></script>
-<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="http://netdna.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	
 </script>

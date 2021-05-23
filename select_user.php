@@ -14,11 +14,12 @@ if(isset($_POST['but_logout'])){
 error_reporting(0);
 require('dbconfig.php');
 $result = mysqli_query($conn,"SELECT * FROM user where username = '".$_POST['username']."'");
+// echo $_POST['username'];
 
 ?>
 <head>
     <meta charset="utf-8">
-    <title>profile with data and skills - Bootdey.com</title>
+    <title>FindMyPal</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://netdna.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="styles/reset.min.css" />
@@ -123,7 +124,7 @@ $result = mysqli_query($conn,"SELECT * FROM user where username = '".$_POST['use
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                    <img src="image/<?php echo $row['image']?>.jpeg" alt="Admin" class="rounded-circle" width="150">
                     <div class="mt-3">
                       <h4><?php echo $_POST['username'] ?></h4>
                       <p class="text-secondary mb-1"><?php echo $row["about"]?></p>
@@ -351,7 +352,7 @@ $result = mysqli_query($conn,"SELECT * FROM user where username = '".$_POST['use
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                    <img src="image/<?php echo $row['image']?>.jpeg" alt="Admin" class="rounded-circle" width="150">
                     <div class="mt-3">
                       <h4><?php echo $_POST['username'] ?></h4>
                       <p class="text-secondary mb-1"><?php echo $row["about"]?></p>

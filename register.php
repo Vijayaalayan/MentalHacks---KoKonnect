@@ -30,15 +30,15 @@
 <body>
 	
 	<div class="limiter">
-		<div class="container-login100" style="background-image: url('images/farming.jpg');">
-			<div class="wrap-login100">
-				<form class="login100-form validate-form" method="POST" action="create.php">
+	<div class="container-login100" style="background-image: url('images/mentalhealth.jpg');">
+			<div class="wrap-login100" style="background:#000029">
+				<form class="login100-form validate-form" action="loginAuth.php" method="POST">
 					<!-- <span class="login100-form-logo"> -->
 						<center><img src="images/E-Tribe.png" height="100px" width="100px"></center>
 					<!-- </span> -->
 
 					<span class="login100-form-title p-b-34 p-t-27">
-						Log in
+						Register
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
@@ -72,11 +72,11 @@
 						</button>
 					</div>
 
-					<!-- <div class="text-center p-t-90">
-						<a class="txt1" href="#">
-							Forgot Password?
+					<div class="text-center p-t-90">
+						<a class="txt1" href="login.php">
+							Already a customer
 						</a>
-					</div> -->
+					</div>
 				</form>
 			</div>
 		</div>

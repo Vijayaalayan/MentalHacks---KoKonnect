@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login V3</title>
+	<title>FindMyPal</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -68,7 +68,11 @@
 						<a class="txt1" href="#">
 							Forgot Password?
 						</a>
+						<a class="txt1" href="register.php" style="margin:0 10%">
+							New here ? Register
+						</a>
 					</div>
+					
 				</form>
 			</div>
 		</div>
