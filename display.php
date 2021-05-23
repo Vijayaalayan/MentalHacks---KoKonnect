@@ -16,6 +16,9 @@ if(isset($_POST['but_logout'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="http://netdna.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/reset.min.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/header-8.css" />
     <style type="text/css">
     	body{
     background:black;
@@ -73,42 +76,54 @@ h4 {
 <body>
 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-          <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-            <!-- <img src="img-1.jpg" alt="" srcset="" height="15%" width="15%"> -->
-        </a>
-    
-          <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
-            <li><a href="new_meet.php" class="nav-link px-2 link-dark">New Meet</a></li>
-            <li><a href="#" class="nav-link px-2 link-dark">Pricing</a></li>
-            <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
-            <li><a href="user_profile.php" class="nav-link px-2 link-dark">About</a></li>
-          </ul>
-    
-          <div class="col-md-3 text-end">
-          <form method='post' action=""  >
-            <button type="submit" class="btn btn-outline-primary me-2" name="but_logout">Log out</button>
+<header class="site-header" style="background:black">
+      <div class="wrapper site-header__wrapper" style="color:white">
+        <div class="site-header__start">
+          <a href="#" class="brand" style="color:white">FindMyPal</a>
+        </div>
+        <div class="site-header__middle">
+          <nav class="nav">
+            <button class="nav__toggle" aria-expanded="false" type="button">
+              menu
+            </button>
+            <ul class="nav__wrapper">
+              <li class="nav__item"><a href="display.php" style="color:white">Home</a></li>
+              <li class="nav__item"><a href="user_profile.php" style="color:white">About</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="site-header__end">
+        <form method='post' action=""  >
+            <button type="submit" class="btn btn-outline-light me-2" name="but_logout">Log out</button>
           </form>
+        </div>
+      </div>
+    </header>
+    <hr style="background:white">
+          <br><br>
             <!-- <button type="button" class="btn btn-primary">Sign-up</button> -->
-          </div>
-        </header>
 <div class="content">
     <div class="container">
-    <div class="btn-group btn-group-toggle" style="margin-left:10%"data-toggle="buttons">
-        <label class="btn btn-secondary active" style="margin: 0 20%">
-            <input type="radio" name="options" id="option1" autocomplete="off" checked> Gym
-        </label>
-        <label class="btn btn-secondary" style="margin: 0 20%">
-            <input type="radio" name="options" id="option2" autocomplete="off"> TechTalks
-        </label>
-        <label class="btn btn-secondary" style="margin: 0 20%">
-            <input type="radio" name="options" id="option2" autocomplete="off"> Jogging
-        </label>
-        <label class="btn btn-secondary" style="margin: 0 20%">
-            <input type="radio" name="options" id="option2" autocomplete="off"> Meditation
-        </label>
+    <form action="" method="POST">
+        <div class="btn-group btn-group-toggle" style="margin-left:0%"data-toggle="buttons">
+            <label class="btn btn-secondary active" style="margin: 0 20%">
+                <!-- <input type="radio" name="options" id="interest" autocomplete="off" checked> Gym -->
+                <button type="submit" class="btn" name="gym" style="color:white">Gym</button>
+            </label>
+            <label class="btn btn-secondary" style="margin: 0 20%">
+                <!-- <input type="radio" name="options" id="interest" autocomplete="off"> TechTalks -->
+                <button type="submit" class="btn" name="techtalks" style="color:white">TechTalks</button>
+            </label>
+            <label class="btn btn-secondary" style="margin: 0 20%">
+                <!-- <input type="radio" name="options" id="interest" autocomplete="off"> Jogging -->
+                <button type="submit" class="btn" name="jogging" style="color:white">Jogging</button>
+            </label>
+            <label class="btn btn-secondary" style="margin: 0 20%">
+                <!-- <input type="radio" name="options" id="interest" autocomplete="off"> Meditation -->
+                <button type="submit" class="btn" name="meditation" style="color:white">Meditation</button>
+            </label>
         </div>
+    </form>
         <br><br>
         <!-- <div class="row">
             <div class="col-sm-4"><a href="#custom-modal" class="btn btn-custom waves-effect waves-light mb-4" data-animation="fadein" data-plugin="custommodal" data-overlayspeed="200" data-overlaycolor="#36404a"><i class="mdi mdi-plus"></i> Add Member</a></div>
@@ -117,30 +132,33 @@ h4 {
         <!-- end row -->
         <div class="row">
         <?php
+        if(isset($_POST['gym'])){
         error_reporting(0);
         require('dbconfig.php');
         $result = mysqli_query($conn,"SELECT place FROM user where username = '".$_SESSION['username']."'");
         if (mysqli_num_rows($result) > 0){
             while($row = mysqli_fetch_assoc($result)) {
-                $sql = "select * from user where place = '".$row['place']."'";
+                $sql = "select * from user where place = '".$row['place']."'AND interests = 'gym'";
                 $query_run = mysqli_query($conn,$sql);
                 if(mysqli_num_rows($query_run)>0){
                     while($row1 = mysqli_fetch_assoc($query_run)){
+                        if($row1['introvert'] == 0){
+
+                        
                         ?>
             <div class="col-lg-4">
                 <div class="text-center card-box">
                     <div class="member-card pt-2 pb-2">
-                        <div class="thumb-lg member-thumb mx-auto"><img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle img-thumbnail" alt="profile-image"></div>
+                        <div class="thumb-lg member-thumb mx-auto"><img src="image/<?php echo $row1['image']?>.jpg" class="rounded-circle img-thumbnail" alt="profile-image"></div>
                         <div class="">
                             <h4><?php echo $row1['username']?></h4>
                             <p class="text-muted"><?php echo $row1['place'] ?> <span>| </span><span><a href="#" class="text-pink"> <?php echo $row1['numbers']?></a></span></p>
                         </div>
-                        <ul class="social-links list-inline">
-                            <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                            <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                            <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Skype"><i class="fa fa-skype"></i></a></li>
-                        </ul>
-                        <button type="button" class="btn btn-primary mt-3 btn-rounded waves-effect w-md waves-light">Message Now</button>
+                        
+                        <form action="select_user.php" method="post">
+                            <button type="submit" class="btn btn-primary mt-3 btn-rounded waves-effect w-md waves-light">View</button>
+                            <input type="hidden" name="username" value="<?php echo $row1["username"]?>">
+                        </form>
                         <div class="mt-4">
                             <div class="row">
                                 <div class="col">
@@ -167,14 +185,372 @@ h4 {
                 </div>
             </div>
             <?php
+                        }else{
+                        
+                        ?>
+                        <div class="col-lg-4">
+                <div class="text-center card-box">
+                    <div class="member-card pt-2 pb-2">
+                        <div class="thumb-lg member-thumb mx-auto"><img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle img-thumbnail" alt="profile-image"></div>
+                        <div class="">
+                            <h4><?php echo $row1['username']?></h4>
+                            <p class="text-muted"><?php echo $row1['place'] ?> <span>
+                        </div>
+                        
+                        <form action="select_user.php" method="post">
+                            <button type="submit" class="btn btn-primary mt-3 btn-rounded waves-effect w-md waves-light">View</button>
+                            <input type="hidden" name="username" value="<?php echo $row1["username"]?>">
+                        </form>
+                        <div class="mt-4">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="mt-3">
+                                        <h4><?php echo $row1['meets']?></h4>
+                                        <p class="mb-0 text-muted">Meets</p>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-4">
+                                    <div class="mt-3">
+                                        <h4>6952</h4>
+                                        <p class="mb-0 text-muted">Income amounts</p>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="mt-3">
+                                        <h4>1125</h4>
+                                        <p class="mb-0 text-muted">Total Transactions</p>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                        <?php
+                        }
                     }
                 }
             }
         }
+    }
     ?>
+    <?php
+        if(isset($_POST['techtalks'])){
+        error_reporting(0);
+        require('dbconfig.php');
+        $result = mysqli_query($conn,"SELECT place FROM user where username = '".$_SESSION['username']."'");
+        if (mysqli_num_rows($result) > 0){
+            while($row = mysqli_fetch_assoc($result)) {
+                $sql = "select * from user where place = '".$row['place']."'AND interests = 'techtalks'";
+                $query_run = mysqli_query($conn,$sql);
+                if(mysqli_num_rows($query_run)>0){
+                    while($row1 = mysqli_fetch_assoc($query_run)){
+                        if($row1['introvert'] == 0){
+
+                        
+                            ?>
+                <div class="col-lg-4">
+                    <div class="text-center card-box">
+                        <div class="member-card pt-2 pb-2">
+                            <div class="thumb-lg member-thumb mx-auto"><img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle img-thumbnail" alt="profile-image"></div>
+                            <div class="">
+                                <h4><?php echo $row1['username']?></h4>
+                                <p class="text-muted"><?php echo $row1['place'] ?> <span>| </span><span><a href="#" class="text-pink"> <?php echo $row1['numbers']?></a></span></p>
+                            </div>
+                            
+                            <form action="select_user.php" method="post">
+                                <button type="submit" class="btn btn-primary mt-3 btn-rounded waves-effect w-md waves-light">View</button>
+                                <input type="hidden" name="username" value="<?php echo $row1["username"]?>">
+                            </form>
+                            <div class="mt-4">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="mt-3">
+                                            <h4><?php echo $row1['meets']?></h4>
+                                            <p class="mb-0 text-muted">Meets</p>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="col-4">
+                                        <div class="mt-3">
+                                            <h4>6952</h4>
+                                            <p class="mb-0 text-muted">Income amounts</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="mt-3">
+                                            <h4>1125</h4>
+                                            <p class="mb-0 text-muted">Total Transactions</p>
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php
+                            }else{
+                            
+                            ?>
+                            <div class="col-lg-4">
+                    <div class="text-center card-box">
+                        <div class="member-card pt-2 pb-2">
+                            <div class="thumb-lg member-thumb mx-auto"><img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle img-thumbnail" alt="profile-image"></div>
+                            <div class="">
+                                <h4><?php echo $row1['username']?></h4>
+                                <p class="text-muted"><?php echo $row1['place'] ?> <span>
+                            </div>
+                            
+                            <form action="select_user.php" method="post">
+                                <button type="submit" class="btn btn-primary mt-3 btn-rounded waves-effect w-md waves-light">View</button>
+                                <input type="hidden" name="username" value="<?php echo $row1["username"]?>">
+                            </form>
+                            <div class="mt-4">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="mt-3">
+                                            <h4><?php echo $row1['meets']?></h4>
+                                            <p class="mb-0 text-muted">Meets</p>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="col-4">
+                                        <div class="mt-3">
+                                            <h4>6952</h4>
+                                            <p class="mb-0 text-muted">Income amounts</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="mt-3">
+                                            <h4>1125</h4>
+                                            <p class="mb-0 text-muted">Total Transactions</p>
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                            <?php
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        ?>
+    <?php
+        if(isset($_POST['jogging'])){
+        error_reporting(0);
+        require('dbconfig.php');
+        $result = mysqli_query($conn,"SELECT place FROM user where username = '".$_SESSION['username']."'");
+        if (mysqli_num_rows($result) > 0){
+            while($row = mysqli_fetch_assoc($result)) {
+                $sql = "select * from user where place = '".$row['place']."'AND interests = 'jogging'";
+                $query_run = mysqli_query($conn,$sql);
+                if(mysqli_num_rows($query_run)>0){
+                    while($row1 = mysqli_fetch_assoc($query_run)){
+                        if($row1['introvert'] == 0){
+
+                        
+                            ?>
+                <div class="col-lg-4">
+                    <div class="text-center card-box">
+                        <div class="member-card pt-2 pb-2">
+                            <div class="thumb-lg member-thumb mx-auto"><img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle img-thumbnail" alt="profile-image"></div>
+                            <div class="">
+                                <h4><?php echo $row1['username']?></h4>
+                                <p class="text-muted"><?php echo $row1['place'] ?> <span>| </span><span><a href="#" class="text-pink"> <?php echo $row1['numbers']?></a></span></p>
+                            </div>
+                            
+                            <form action="select_user.php" method="post">
+                                <button type="submit" class="btn btn-primary mt-3 btn-rounded waves-effect w-md waves-light">View</button>
+                                <input type="hidden" name="username" value="<?php echo $row1["username"]?>">
+                            </form>
+                            <div class="mt-4">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="mt-3">
+                                            <h4><?php echo $row1['meets']?></h4>
+                                            <p class="mb-0 text-muted">Meets</p>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="col-4">
+                                        <div class="mt-3">
+                                            <h4>6952</h4>
+                                            <p class="mb-0 text-muted">Income amounts</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="mt-3">
+                                            <h4>1125</h4>
+                                            <p class="mb-0 text-muted">Total Transactions</p>
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php
+                            }else{
+                            
+                            ?>
+                            <div class="col-lg-4">
+                    <div class="text-center card-box">
+                        <div class="member-card pt-2 pb-2">
+                            <div class="thumb-lg member-thumb mx-auto"><img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle img-thumbnail" alt="profile-image"></div>
+                            <div class="">
+                                <h4><?php echo $row1['username']?></h4>
+                                <p class="text-muted"><?php echo $row1['place'] ?> <span>
+                            </div>
+                            
+                            <form action="select_user.php" method="post">
+                                <button type="submit" class="btn btn-primary mt-3 btn-rounded waves-effect w-md waves-light">View</button>
+                                <input type="hidden" name="username" value="<?php echo $row1["username"]?>">
+                            </form>
+                            <div class="mt-4">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="mt-3">
+                                            <h4><?php echo $row1['meets']?></h4>
+                                            <p class="mb-0 text-muted">Meets</p>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="col-4">
+                                        <div class="mt-3">
+                                            <h4>6952</h4>
+                                            <p class="mb-0 text-muted">Income amounts</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="mt-3">
+                                            <h4>1125</h4>
+                                            <p class="mb-0 text-muted">Total Transactions</p>
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                            <?php
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        ?>
+    <?php
+        if(isset($_POST['meditation'])){
+        error_reporting(0);
+        require('dbconfig.php');
+        $result = mysqli_query($conn,"SELECT place FROM user where username = '".$_SESSION['username']."'");
+        if (mysqli_num_rows($result) > 0){
+            while($row = mysqli_fetch_assoc($result)) {
+                $sql = "select * from user where place = '".$row['place']."'AND interests = 'meditation'";
+                $query_run = mysqli_query($conn,$sql);
+                if(mysqli_num_rows($query_run)>0){
+                    while($row1 = mysqli_fetch_assoc($query_run)){
+                        if($row1['introvert'] == 0){
+
+                        
+                            ?>
+                <div class="col-lg-4">
+                    <div class="text-center card-box">
+                        <div class="member-card pt-2 pb-2">
+                            <div class="thumb-lg member-thumb mx-auto"><img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle img-thumbnail" alt="profile-image"></div>
+                            <div class="">
+                                <h4><?php echo $row1['username']?></h4>
+                                <p class="text-muted"><?php echo $row1['place'] ?> <span>| </span><span><a href="#" class="text-pink"> <?php echo $row1['numbers']?></a></span></p>
+                            </div>
+                            
+                            <form action="select_user.php" method="post">
+                                <button type="submit" class="btn btn-primary mt-3 btn-rounded waves-effect w-md waves-light">View</button>
+                                <input type="hidden" name="username" value="<?php echo $row1["username"]?>">
+                            </form>
+                            <div class="mt-4">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="mt-3">
+                                            <h4><?php echo $row1['meets']?></h4>
+                                            <p class="mb-0 text-muted">Meets</p>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="col-4">
+                                        <div class="mt-3">
+                                            <h4>6952</h4>
+                                            <p class="mb-0 text-muted">Income amounts</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="mt-3">
+                                            <h4>1125</h4>
+                                            <p class="mb-0 text-muted">Total Transactions</p>
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php
+                            }else{
+                            
+                            ?>
+                            <div class="col-lg-4">
+                    <div class="text-center card-box">
+                        <div class="member-card pt-2 pb-2">
+                            <div class="thumb-lg member-thumb mx-auto"><img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle img-thumbnail" alt="profile-image"></div>
+                            <div class="">
+                                <h4><?php echo $row1['username']?></h4>
+                                <p class="text-muted"><?php echo $row1['place'] ?> <span>
+                            </div>
+                            
+                            <form action="select_user.php" method="post">
+                                <button type="submit" class="btn btn-primary mt-3 btn-rounded waves-effect w-md waves-light">View</button>
+                                <input type="hidden" name="username" value="<?php echo $row1["username"]?>">
+                            </form>
+                            <div class="mt-4">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="mt-3">
+                                            <h4><?php echo $row1['meets']?></h4>
+                                            <p class="mb-0 text-muted">Meets</p>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="col-4">
+                                        <div class="mt-3">
+                                            <h4>6952</h4>
+                                            <p class="mb-0 text-muted">Income amounts</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="mt-3">
+                                            <h4>1125</h4>
+                                            <p class="mb-0 text-muted">Total Transactions</p>
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                            <?php
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        ?>
     </div>
     </div>
     </div>
+    <div style="float:right">
+    <iframe width="350" height="430" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/f83e1948-617f-407b-b88c-90132afaa91d"></iframe>
+
+    </div>
+    <script src="js/header-8.js"></script>
 <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <script type="text/javascript">

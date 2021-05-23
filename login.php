@@ -30,8 +30,8 @@
 <body>
 	
 	<div class="limiter">
-		<div class="container-login100" style="background-image: url('images/farming.jpg');">
-			<div class="wrap-login100">
+		<div class="container-login100" style="background-image: url('images/mentalhealth.jpg');">
+			<div class="wrap-login100" style="background:#000029">
 				<form class="login100-form validate-form" action="loginAuth.php" method="POST">
 					<!-- <span class="login100-form-logo"> -->
 						<center><img src="images/E-Tribe.png" height="100px" width="100px"></center>

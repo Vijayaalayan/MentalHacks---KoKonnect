@@ -21,6 +21,9 @@ $result = mysqli_query($conn,"SELECT * FROM user where username = '".$_SESSION['
     <title>profile with data and skills - Bootdey.com</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://netdna.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/reset.min.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/header-8.css" />
     <style type="text/css">
     	body{
     margin-top:20px;
@@ -80,26 +83,31 @@ $result = mysqli_query($conn,"SELECT * FROM user where username = '".$_SESSION['
 </head>
 <body>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-          <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-            <!-- <img src="img-1.jpg" alt="" srcset="" height="15%" width="15%"> -->
-        </a>
-    
-          <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
-            <li><a href="#" class="nav-link px-2 link-dark">Features</a></li>
-            <li><a href="#" class="nav-link px-2 link-dark">Pricing</a></li>
-            <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
-            <li><a href="user_profile.php" class="nav-link px-2 link-dark">About</a></li>
-          </ul>
-    
-          <div class="col-md-3 text-end">
-          <form method='post' action=""  >
-            <button type="submit" class="btn btn-outline-primary me-2" name="but_logout">Log out</button>
+<header class="site-header" style="background:black">
+      <div class="wrapper site-header__wrapper" style="color:white">
+        <div class="site-header__start">
+          <a href="#" class="brand" style="color:white">FindMyPal</a>
+        </div>
+        <div class="site-header__middle">
+          <nav class="nav">
+            <button class="nav__toggle" aria-expanded="false" type="button">
+              menu
+            </button>
+            <ul class="nav__wrapper">
+              <li class="nav__item"><a href="display.php" style="color:white">Home</a></li>
+              <li class="nav__item"><a href="user_profile.php" style="color:white">About</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="site-header__end">
+        <form method='post' action=""  >
+            <button type="submit" class="btn btn-outline-light me-2" name="but_logout">Log out</button>
           </form>
-            <!-- <button type="button" class="btn btn-primary">Sign-up</button> -->
-          </div>
-        </header>
+        </div>
+      </div>
+    </header>
+    <hr style="background:white">
+          <br><br>
         <div class="container">
     <div class="main-body">
         <form action="update.php" method="POST">
@@ -181,18 +189,32 @@ $result = mysqli_query($conn,"SELECT * FROM user where username = '".$_SESSION['
                 </div>
               </div>
               <div class="row gutters-sm">
-                <div class="col-sm-6 mb-3">
+              <div class="col-sm-6 mb-3">
                   <div class="card h-100">
                     <div class="card-body">
-                      <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">assignment</i>Project Status</h6>
-                      <h3>Total No. of Meets</h3>
-                      <!-- <div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div> -->
-                      <h2><?php echo $row["meets"]?></h2>
+                      <h4 class="d-flex align-items-center mb-3">Project Status<h4>
+                      <h2>Total No. of Meets</h2>
+                      <h6><?php echo $row["meets"]?></h6>
+                        <br>
+                      <h6>Interests</h>
+                        <br>
+                      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                      <label class="btn btn-secondary active">
+                            <input type="radio" name="options" id="option1" autocomplete="off" checked value="gym">GYM
+                            </label>
+                            <label class="btn btn-secondary">
+                            <input type="radio" name="options" id="option2" autocomplete="off" value="techtalks">TECH TALKS
+                            </label>
+                            <label class="btn btn-secondary active">
+                            <input type="radio" name="options" id="option3" autocomplete="off" valu="jogging">JOGGING
+                            </label>
+                            <label class="btn btn-secondary">
+                            <input type="radio" name="options" id="option4" autocomplete="off" value="meditation">MEDITATE
+                            </label>
+                      </div>
+                      </div>
                     </div>
                   </div>
-                </div>
                 <div class="col-sm-6 mb-3">
                   <div class="card h-100">
                     <div class="card-body">
@@ -219,7 +241,7 @@ $result = mysqli_query($conn,"SELECT * FROM user where username = '".$_SESSION['
                           <input type="radio" name="option2" id="option1" autocomplete="off" checked value="Yes"> Yes
                         </label>
                         <label class="btn btn-secondary">
-                          <input type="radio" name="option2" id="option2" autocomplete="off" value="No"> No
+                          <input type="radio" name="option2" id="option2" autocomplete="off" > No
                         </label>
                       </div>
                     </div>
@@ -235,6 +257,7 @@ $result = mysqli_query($conn,"SELECT * FROM user where username = '".$_SESSION['
             }
             ?>
             </form>
+            <script src="js/header-8.js"></script>
 <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <script type="text/javascript">

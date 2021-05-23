@@ -25,8 +25,9 @@ if(isset($_POST['submit'])){
         $introvert = 0;
     }
     echo $introvert;
+    $interests = $_REQUEST['options'];
     $update = "UPDATE user set instagram = '$instagram', facebook = '$facebook', fullname = '$fullname', email = '$email', numbers='$numbers', 
-                adddress = '$address', active = '$active', introvert = '$introvert' where username = '".$_SESSION['username']."'";
+                adddress = '$address', active = '$active', introvert = '$introvert',interests = '$interests' where username = '".$_SESSION['username']."'";
     mysqli_query($conn,$update);
     header("location:user_profile.php");           
 }else{
