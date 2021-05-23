@@ -16,6 +16,7 @@ We made a complete app which connects people relieve their stress, and we are su
 We learned a bit of NLP and dialogflow and improved our Php skills
 ## What's next for FindMyPal
 Making this recognise worldwide and improve the UI and minor bugs.
+<br>
 
-GoDaddy Domain - https://findmypal.co
+GoDaddy Domain - https://findmypal.co<br>
 YouTube Link - https://youtu.be/ra4HNObLaMg 
